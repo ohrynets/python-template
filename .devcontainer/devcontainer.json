@@ -12,7 +12,6 @@
 			"extensions": [
 				"ms-azuretools.vscode-docker",
 				"ms-python.python",
-				"GitHub.copilot",
 				"ms-python.debugpy",
 				"donjayamanne.python-extension-pack",
 				"donjayamanne.python-environment-manager",
@@ -20,7 +19,7 @@
 				"ms-toolsai.jupyter",
 				"adamviola.parquet-explorer",
 				"ms-toolsai.vscode-ai",
-				"zeshuaro.vscode-python-poetry",
+				"RooVeterinaryInc.roo-cline",
 			],
 			"settings": {
 				"terminal.integrated.shell.linux": "/bin/bash"

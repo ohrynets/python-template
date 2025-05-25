@@ -47,6 +47,30 @@ ENV YOUR_ENV=${YOUR_ENV} \
   #PIP_DISABLE_PIP_VERSION_CHECK=on \
   #PIP_DEFAULT_TIMEOUT=100 \
 
+# Set environment variables for NVM
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 22.14.0
+ENV NVM_VERSION 0.40.2
+
+
+# Install NVM
+RUN mkdir $NVM_DIR && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
+
+# Load NVM and install Node.js
+RUN bash -c "source $NVM_DIR/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm alias default $NODE_VERSION && \
+    nvm use default"
+
+# Add Node.js and npm to PATH
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+# Verify installation
+RUN node -v
+RUN npm -v
+
+RUN npm install -g nodejs
+
 USER $USERNAME
 ARG WORKSPACE
 ARG VENV=/home/$USERNAME/.venv
@@ -54,6 +78,7 @@ ARG VENV=/home/$USERNAME/.venv
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
+RUN echo 'eval "$(uv generate-shell-completion bash)"' >> /home/$USERNAME/.bashrc
 # Copy requirements files
 #COPY requirements-core.txt ${WORKSPACE}/
 

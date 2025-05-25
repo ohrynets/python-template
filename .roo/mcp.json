@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "alwaysAllow": [
+        "get-library-docs"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@itseasy21/mcp-knowledge-graph",
+        "--memory-path",
+        "/workspace/memory.jsonl"
+      ],
+      "alwaysAllow": [
+        "open_nodes",
+        "create_entities"
+      ]
+    }
+  }
+}
