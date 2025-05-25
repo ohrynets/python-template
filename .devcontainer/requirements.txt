@@ -1,0 +1,4 @@
+python-dotenv
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
+llama-index-readers-file
