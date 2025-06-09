@@ -31,7 +31,11 @@ RUN apt-get update && apt-get install -y \
     python3.12-dev \
 #    python3-pip \
     python-is-python3 \ 
-    && apt-get clean \
+    g++-aarch64-linux-gnu \
+    build-essential \
+    binutils \
+    binutils-aarch64-linux-gnu \
+    && apt-get clean \    
     && rm -rf /var/lib/apt/lists/*
 
 # Set Python 3.12 as the default python3

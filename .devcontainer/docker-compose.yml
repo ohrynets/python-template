@@ -7,11 +7,13 @@ services:
         - USERNAME=${USERNAME:-vscode}
         - USER_UID=${USER_UID:-1000}
         - USER_GID=${USER_GID:-1000}
+    platform: linux/aarch64
     environment:
       - PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:128,expandable_segments:True
     volumes:
       - ../:/workspace
       - ${HOME}/.ssh:/home/${USERNAME}/.ssh:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     command: sleep infinity
     extra_hosts:
       - "host.docker.internal:host-gateway"
