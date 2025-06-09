@@ -10,3 +10,4 @@ wheels/
 .venv
 #Memmory
 memory.jsonl
+uv.lock
